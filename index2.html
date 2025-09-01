@@ -113,6 +113,56 @@
       opacity: 0;
     }
 
+    /* Product Card: equal height & aligned price */
+    .product-card{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-align: center;
+    }
+
+    .product-media{
+      width: 100%;
+      aspect-ratio: 4/5;           /* đổi 4/5 nếu muốn ảnh chữ nhật */
+      background: #f8f9fa;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform .3s, opacity .3s;
+      display: block;
+    }
+    /* Hover 2 ảnh (nếu có) */
+    .product-media .hover-img{
+      position: absolute; inset: 0; opacity: 0;
+    }
+    .product-media:hover .hover-img{ opacity: 1; }
+    .product-media:hover .main-img{ opacity: 0; }
+
+    /* Title khóa 2 dòng để thẻ bằng nhau */
+    .product-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* block chứa title+price để đẩy price xuống đáy */
+    .product-meta{ display: flex; flex-direction: column; flex: 1 1 auto; }
+
+    .product-price{
+      font-size: .9rem;
+      color: #000;
+      font-weight: 600;
+      margin-top: auto;
+    }
+
+    /* Hover scale nhẹ cho ảnh (optional) */
+    .product-card:hover .product-media img.main-img{ transform: scale(1.02); }
   </style>
 </head>
 <body>
@@ -147,7 +197,8 @@
     <button class="btn" id="menuClose"><i class="bi bi-x-lg"></i></button>
   </div>
   <ul class="list-unstyled">
-    <li><a href="#" class="text-decoration-none d-block py-2">Shop All</a></li>
+    <li><a href="#" class="text-decoration-none d-block py-2" target="_blank">About</a></li>
+    <li><a href="index2.html" class="text-decoration-none d-block py-2" target="_blank">Shop All</a></li>
     <li><a href="#" class="text-decoration-none d-block py-2">Gift Card</a></li>
     <li>
       <a class="text-decoration-none d-block py-2 dropdown-toggle" data-bs-toggle="collapse" href="#communityMenu">Community</a>
@@ -184,7 +235,9 @@
       <!-- Sản phẩm 1 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\non nau.jpg" alt="Product 1">
+          <div class="product-media">
+            <img src="san pham\Shopall\non nau.jpg" alt="Product 1">
+          </div>
           <p class="product-title">""REALM OF" BIG ICON CURSIVE EMBROIDERY VINTAGE CAP WALNUT</p>
           <p class="product-price">380.000₫</p>
         </div>
@@ -193,7 +246,9 @@
       <!-- Sản phẩm 2 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\non den.jpg" alt="Product 2">
+          <div class="product-media">
+            <img src="san pham\Shopall\non den.jpg" alt="Product 2">
+          </div>
           <p class="product-title">""REALM OF" RE'LA'M UNCONSTRUCTED VINTAGE CAP BLACK</p>
           <p class="product-price">380.000₫</p>
         </div>
@@ -202,9 +257,11 @@
       <!-- Sản phẩm 3 -->
       <div class="col">
         <div class="text-center product-card position-relative">
-          <div class="hover-img-container">
-            <img src="san pham\Shopall\maptee den 1.jpg" class="main-img" alt="Product 3">
-            <img src="san pham\Shopall\maptee den 2.jpg" class="hover-img" alt="Product 3 Hover">
+          <div class="product-media">
+            <div class="hover-img-container">
+              <img src="san pham/Shopall/maptee den 1.jpg" class="main-img" alt="Product 3">
+              <img src="san pham/Shopall/maptee den 2.jpg" class="hover-img" alt="Product 3 Hover">
+            </div>
           </div>
           <p class="product-title">"REALM OF" MAP TEE BLACK</p>
           <p class="product-price">430.000₫</p>
@@ -214,9 +271,11 @@
       <!-- Sản phẩm 4 -->
       <div class="col">
         <div class="text-center product-card position-relative">
-          <div class="hover-img-container">
-            <img src="san pham\Shopall\maptee trang 1.jpg" class="main-img" alt="Product 3">
-            <img src="san pham\Shopall\maptee trang 2.jpg" class="hover-img" alt="Product 3 Hover">
+          <div class="product-media">
+            <div class="hover-img-container">
+              <img src="san pham\Shopall\maptee trang 1.jpg" class="main-img" alt="Product 3">
+              <img src="san pham\Shopall\maptee trang 2.jpg" class="hover-img" alt="Product 3 Hover">
+            </div>
           </div>
           <p class="product-title">"REALM OF" MAP TEE WHITE</p>
           <p class="product-price">430.000₫</p>
@@ -226,9 +285,11 @@
       <!-- Sản phẩm 5 -->
       <div class="col">
         <div class="text-center product-card position-relative">
-          <div class="hover-img-container">
-            <img src="san pham\Shopall\bang do xam.jpg" class="main-img" alt="Product 3">
-            <img src="san pham\Shopall\bang do den.jpg" class="hover-img" alt="Product 3 Hover">
+          <div class="product-media">
+            <div class="hover-img-container">
+              <img src="san pham\Shopall\bang do xam.jpg" class="main-img" alt="Product 3">
+              <img src="san pham\Shopall\bang do den.jpg" class="hover-img" alt="Product 3 Hover">
+            </div>
           </div>
           <p class="product-title">"REALM OF" EMBOSSED LOGO HEADBAND & "REALM OF" SAFE HEADBAND</p>
           <p class="product-price">99.000₫</p>
@@ -238,7 +299,9 @@
       <!-- Sản phẩm 1 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\ba lo nu.jpg" alt="Product 1">
+          <div class="product-media">
+            <img src="san pham\Shopall\ba lo nu.jpg" alt="Product 1">
+          </div>
           <p class="product-title">"REALM OF" EMBOSSED LOGO WOMEN CROPPED TANK</p>
           <p class="product-price">280.000₫</p>
         </div>
@@ -247,7 +310,9 @@
       <!-- Sản phẩm 2 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\ao ong nu.jpg" alt="Product 2">
+          <div class="product-media">
+            <img src="san pham\Shopall\ao ong nu.jpg" alt="Product 2">
+          </div>
           <p class="product-title">"REALM OF" SAFE TUBE TOP BLACK</p>
           <p class="product-price">169.000₫</p>
         </div>
@@ -256,9 +321,11 @@
       <!-- Sản phẩm 3 -->
       <div class="col">
         <div class="text-center product-card position-relative">
-          <div class="hover-img-container">
-            <img src="san pham\Shopall\minimal den 1.png" class="main-img" alt="Product 3">
-            <img src="san pham\Shopall\minimal den 2.png" class="hover-img" alt="Product 3 Hover">
+          <div class="product-media">
+            <div class="hover-img-container">
+              <img src="san pham\Shopall\minimal den 1.png" class="main-img" alt="Product 3">
+              <img src="san pham\Shopall\minimal den 2.png" class="hover-img" alt="Product 3 Hover">
+            </div>
           </div>
           <p class="product-title">"REALM OF" MINIMAL TEE BLACK</p>
           <p class="product-price">380.000₫</p>
@@ -268,9 +335,11 @@
       <!-- Sản phẩm 4 -->
       <div class="col">
         <div class="text-center product-card position-relative">
-          <div class="hover-img-container">
-            <img src="san pham\Shopall\minimal trang 1.png" class="main-img" alt="Product 3">
-            <img src="san pham\Shopall\minimal trang 2.png" class="hover-img" alt="Product 3 Hover">
+          <div class="product-media">
+            <div class="hover-img-container">
+              <img src="san pham\Shopall\minimal trang 1.png" class="main-img" alt="Product 3">
+              <img src="san pham\Shopall\minimal trang 2.png" class="hover-img" alt="Product 3 Hover">
+            </div>
           </div>
           <p class="product-title">"REALM OF" MINIMAL TEE WHITE</p>
           <p class="product-price">380.000₫</p>
@@ -280,7 +349,9 @@
       <!-- Sản phẩm 5 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\jort xam.jpg" alt="Product 1">
+          <div class="product-media">
+            <img src="san pham\Shopall\jort xam.jpg" alt="Product 1">
+          </div>
           <p class="product-title">"REALM OF" SWEATJORTS GREY</p>
           <p class="product-price">530.000₫</p>
         </div>
@@ -289,7 +360,9 @@
       <!-- Sản phẩm 1 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\jort den.jpg" alt="Product 5">
+          <div class="product-media">
+            <img src="san pham\Shopall\jort den.jpg" alt="Product 5">
+          </div>
           <p class="product-title">"REALM OF" SWEATJORTS BLACK</p>
           <p class="product-price">530.000₫</p>
         </div>
@@ -298,7 +371,9 @@
       <!-- Sản phẩm 2 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\hoodie den.jpg" alt="Product 1">
+          <div class="product-media">
+            <img src="san pham\Shopall\hoodie den.jpg" alt="Product 1">
+          </div>
           <p class="product-title">"REALM OF" 3D EMBROIDERY HOODIE NIGHT</p>
           <p class="product-price">690.000₫</p>
         </div>
@@ -307,7 +382,9 @@
       <!-- Sản phẩm 3 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\hoodie xam.jpg" alt="Product 2">
+          <div class="product-media">
+            <img src="san pham\Shopall\hoodie xam.jpg" alt="Product 2">
+          </div>
           <p class="product-title">"REALM OF" 3D EMBROIDERY HOODIE GREY</p>
           <p class="product-price">690.000₫</p>
         </div>
@@ -316,7 +393,9 @@
       <!-- Sản phẩm 4 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\sweatpant den.jpg" alt="Product 2">
+          <div class="product-media">
+            <img src="san pham\Shopall\sweatpant den.jpg" alt="Product 2">
+          </div>
           <p class="product-title">"REALM OF" SWEATPANTS NIGHT</p>
           <p class="product-price">650.000₫</p>
         </div>
@@ -325,7 +404,9 @@
       <!-- Sản phẩm 5 -->
       <div class="col">
         <div class="text-center product-card">
-          <img src="san pham\Shopall\sweatpant trang.jpg" alt="Product 2">
+          <div class="product-media">
+            <img src="san pham\Shopall\sweatpant trang.jpg" alt="Product 2">
+          </div>
           <p class="product-title">"REALM OF" SWEATPANTS GREY</p>
           <p class="product-price">650.000₫</p>
         </div>
@@ -369,4 +450,3 @@
 </script>
 </body>
 </html>
-
